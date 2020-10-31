@@ -1,30 +1,32 @@
 import React from "react";
 
-export default class SearchBar extends React.Component {
+class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { input: "" };
+    this.state = { term: "" };
 
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  handleSearch() {
+  handleSearch(e) {
     e.preventDefault();
+
+    this.props.searchSubmit(this.state.term);
   }
 
   render() {
     return (
-      <section className="ui segment">
-        <form onSubmit={this.handleSearch} className="ui form">
-          <section className="field">
-            <label htmlFor="search">Image Search</label>
+      <section className='ui segment'>
+        <form onSubmit={this.handleSearch} className='ui form'>
+          <section className='field'>
+            <label htmlFor='search'>Image Search</label>
             <input
-              value={this.state.input}
-              name="search"
-              id="search"
-              type="search"
-              onChange={(e) => this.setState({ input: e.target.value })}
+              value={this.state.term}
+              name='search'
+              id='search'
+              type='search'
+              onChange={(e) => this.setState({ term: e.target.value })}
             />
           </section>
         </form>
@@ -32,3 +34,5 @@ export default class SearchBar extends React.Component {
     );
   }
 }
+
+export default SearchBar;

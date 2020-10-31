@@ -6,21 +6,25 @@ import NewProj from "./new_proj/NewProj";
 import "./Style.css";
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <main>
-        <navbar>
+        <nav>
           <ul>
             <li>
-              <Link to="/old">Geolocation Project</Link>
+              <Link to='/old'>Geolocation Project</Link>
             </li>
             <li>
-              <Link to="/new">New Project</Link>
+              <Link to='/new'>New Project</Link>
             </li>
           </ul>
-        </navbar>
-        <Route exact path="/old" component={OldProj} />
-        <Route exact path="/new" component={NewProj} />
+        </nav>
+        <Route exact path='/old' component={OldProj} />
+        <Route exact path='/new' component={NewProj} />
       </main>
     );
   }
