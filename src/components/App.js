@@ -6,10 +6,6 @@ import NewProj from "./new_proj/NewProj";
 import "./Style.css";
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <main>
