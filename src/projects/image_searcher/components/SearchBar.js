@@ -17,10 +17,10 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <section className='ui segment'>
+      <section className='search-bar ui segment'>
         <form onSubmit={this.handleSearch} className='ui form'>
           <section className='field'>
-            <label htmlFor='search'>Image Search</label>
+            <label htmlFor='search'>{this.props.type} Search</label>
             <input
               value={this.state.term}
               name='search'

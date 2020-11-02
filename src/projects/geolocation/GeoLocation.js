@@ -5,7 +5,7 @@ import ApprovalCard from "./components/ApprovalCard";
 import SeasonDisplay from "./components/SeasonDisplay";
 import Spinner from "./components/Spinner";
 
-export default class OldProj extends React.Component {
+class GeoLocation extends React.Component {
   constructor(props) {
     super(props);
 
@@ -47,3 +47,5 @@ export default class OldProj extends React.Component {
     );
   }
 }
+
+export default GeoLocation;

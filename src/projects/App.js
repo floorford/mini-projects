@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 
-import OldProj from "./old_proj/OldProj";
-import NewProj from "./new_proj/NewProj";
+import GeoLocation from "./geolocation/GeoLocation";
+import ImageSearcher from "./image_searcher/ImageSearcher";
+import Video from "./videos/Video";
 import "./Style.css";
 
 export default class App extends React.Component {
@@ -12,15 +13,19 @@ export default class App extends React.Component {
         <nav>
           <ul>
             <li>
-              <Link to='/old'>Geolocation Project</Link>
+              <Link to='/geo'>Geolocater</Link>
             </li>
             <li>
-              <Link to='/new'>New Project</Link>
+              <Link to='/imagesearch'>Image Searcher</Link>
+            </li>
+            <li>
+              <Link to='/videos'>Videos</Link>
             </li>
           </ul>
         </nav>
-        <Route exact path='/old' component={OldProj} />
-        <Route exact path='/new' component={NewProj} />
+        <Route exact path='/geo' component={GeoLocation} />
+        <Route exact path='/imagesearch' component={ImageSearcher} />
+        <Route exact path='/videos' component={Video} />
       </main>
     );
   }

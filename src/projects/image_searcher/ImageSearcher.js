@@ -2,9 +2,9 @@ import React from "react";
 
 import unsplash from "./api/unsplash";
 import SearchBar from "./components/SearchBar";
-import ImageList from "./components/ImageList";
+import List from "./components/List";
 
-class NewProj extends React.Component {
+class ImageSearcher extends React.Component {
   state = { images: [] };
 
   onSearchSubmit = async (term) => {
@@ -18,11 +18,11 @@ class NewProj extends React.Component {
   render() {
     return (
       <section className='ui container' style={{ marginTop: 10 }}>
-        <SearchBar searchSubmit={this.onSearchSubmit} />
-        <ImageList images={this.state.images} />
+        <SearchBar type={"Image"} searchSubmit={this.onSearchSubmit} />
+        <List media={this.state.images} />
       </section>
     );
   }
 }
 
-export default NewProj;
+export default ImageSearcher;
