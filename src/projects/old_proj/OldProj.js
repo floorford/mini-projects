@@ -1,9 +1,9 @@
 import React from "react";
 
-import Comment from "./Comment";
-import ApprovalCard from "./ApprovalCard";
-import SeasonDisplay from "./SeasonDisplay";
-import Spinner from "./Spinner";
+import Comment from "./components/Comment";
+import ApprovalCard from "./components/ApprovalCard";
+import SeasonDisplay from "./components/SeasonDisplay";
+import Spinner from "./components/Spinner";
 
 export default class OldProj extends React.Component {
   constructor(props) {
@@ -29,18 +29,18 @@ export default class OldProj extends React.Component {
     if (!lat && errorMessage) {
       return <h4>Error: {errorMessage}</h4>;
     }
-    return <Spinner message="Please accept location request" />;
+    return <Spinner message='Please accept location request' />;
   }
 
   render() {
     return (
-      <section className="ui container comments">
+      <section className='ui container comments'>
         {this.getDisplay()}
         <ApprovalCard>
           <Comment
-            author="Sam Snubbs"
-            meta="Yesterday at 02:31"
-            comment="I love this, lol"
+            author='Sam Snubbs'
+            meta='Yesterday at 02:31'
+            comment='I love this, lol'
           />
         </ApprovalCard>
       </section>
