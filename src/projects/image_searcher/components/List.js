@@ -2,18 +2,24 @@ import React from "react";
 
 import "../css/style.css";
 import ImageCard from "./ImageCard";
-import VideoCard from "../../videos/components/VideoCard.js";
+import VideoItem from "../../videos/components/VideoItem.js";
 
-const List = ({ media, type }) => {
-  const mediaList = media.map((med) =>
+const List = ({ media, type, onSelect }) => {
+  const mediaList = media.map((med, i) =>
     type === "video" ? (
-      <VideoCard key={med.id} image={med} />
+      <VideoItem key={i} video={med} onSelect={onSelect} />
     ) : (
-      <ImageCard key={med.id} image={med} />
+      <ImageCard key={i} image={med} />
     )
   );
 
-  return <div className='media-list'>{mediaList}</div>;
+  return (
+    <div
+      className={type === "video" ? "ui relaxed divided list" : "media-list"}
+    >
+      {mediaList}
+    </div>
+  );
 };
 
 export default List;
