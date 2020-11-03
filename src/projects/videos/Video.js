@@ -2,8 +2,7 @@ import React from "react";
 
 import youtube from "./api/youtube";
 import SearchBar from "../image_searcher/components/SearchBar";
-
-const KEY = "AIzaSyDYYXnUMSmA6ZIGfnYHtWobSADVZ0M1Za4";
+import YTUBE_KEY from "../../keys";
 
 class Video extends React.Component {
   onSearchSubmit = async (term) => {
@@ -12,7 +11,7 @@ class Video extends React.Component {
         q: term,
         part: "snippet",
         maxResults: 5,
-        key: KEY,
+        key: YTUBE_KEY,
       },
     });
   };
