@@ -1,9 +1,3 @@
-### Project contains:
-
-Mini weather app using geolocation, a image search using unsplash and a video searcher using the youtube API
-
-### Hosted at: https://floorford.github.io/mini-projects/
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
