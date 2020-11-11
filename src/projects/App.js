@@ -8,13 +8,14 @@ import Dropdown from "./dropdown/Dropdown";
 import "./Style.css";
 
 const options = [
-  { label: "The colour red", value: "red" },
-  { label: "A kind of green", value: "green" },
-  { label: "The shade of blue", value: "blue" },
+  { label: "The colour red", value: "red", hex: "#e63c3cde" },
+  { label: "A kind of green", value: "green", hex: "#46e469de" },
+  { label: "The shade of blue", value: "blue", hex: "#20a7a1" },
 ];
 
 const App = () => {
   const [selected, setSelected] = useState(options[0]);
+  const [showDropdown, setShowDropdown] = useState(true);
 
   return (
     <main>
@@ -38,11 +39,21 @@ const App = () => {
       <Route exact path='/imagesearch' component={ImageSearcher} />
       <Route exact path='/videos' component={Video} />
       <Route exact path='/dropdown'>
-        <Dropdown
-          selected={selected}
-          onSelectedChange={setSelected}
-          options={options}
-        />
+        <>
+          <button
+            className='ui secondary button'
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            Toggle Dropdown
+          </button>
+          {showDropdown ? (
+            <Dropdown
+              selected={selected}
+              onSelectedChange={setSelected}
+              options={options}
+            />
+          ) : null}
+        </>
       </Route>
     </main>
   );

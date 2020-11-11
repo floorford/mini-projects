@@ -13,3 +13,9 @@ nav ul {
   display: flex;
   justify-content: space-evenly;
 }
+
+form,
+.ui.button,
+p {
+  margin: 1rem;
+}
