@@ -1,8 +1,8 @@
 import React from "react";
 
 class ImageCard extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = { spans: 0 };
 
@@ -15,7 +15,6 @@ class ImageCard extends React.Component {
 
   setSpans = () => {
     const height = this.imageRef.current.clientHeight;
-    console.log(height);
 
     const spans = Math.ceil(height / 10);
 

@@ -3,15 +3,24 @@ nav li {
   padding: 2rem;
 }
 
+nav {
+  background-color: #4183c4;
+}
+
 nav a {
-  color: seagreen;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
+  color: white;
+}
+
+nav a:hover {
+  color: #cfffd9;
 }
 
 nav ul {
   display: flex;
   justify-content: space-evenly;
+  margin: 0;
 }
 
 form,

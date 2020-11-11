@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const Dropdown = ({ options, selected, onSelectedChange }) => {
+const Dropdown = ({
+  options,
+  selected,
+  onSelectedChange,
+  label,
+  resultText,
+}) => {
   const [open, setOpen] = useState(false);
   const mostParentElement = useRef();
 
@@ -35,7 +41,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
     <section>
       <form className='ui form' ref={mostParentElement}>
         <div className='field'>
-          <label className='label'>Select a Colour</label>
+          <label className='label'>{label}</label>
           <div
             onClick={() => setOpen(!open)}
             className={`ui selection dropdown ${open ? "visible active" : ""}`}
@@ -48,8 +54,13 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
           </div>
         </div>
       </form>
-      <p style={{ fontSize: "2rem", color: selected.hex }}>
-        The text is {selected.value}
+      <p
+        style={{
+          fontSize: "2rem",
+          color: selected.hex ? selected.hex : "#ef79df",
+        }}
+      >
+        {resultText} {selected.value}
       </p>
     </section>
   );
