@@ -25,6 +25,7 @@ nav ul {
 
 form,
 .ui.button,
-p {
+p,
+h3 {
   margin: 1rem;
 }

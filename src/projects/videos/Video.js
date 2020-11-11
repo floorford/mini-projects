@@ -1,6 +1,6 @@
 import React from "react";
+import axios from "axios";
 
-import youtube from "./api/youtube";
 import { YTUBE_KEY } from "../../keys";
 
 import SearchBar from "../image_searcher/components/SearchBar";
@@ -15,14 +15,17 @@ class Video extends React.Component {
   }
 
   onSearchSubmit = async (term) => {
-    const response = await youtube.get("/search", {
-      params: {
-        q: term,
-        part: "snippet",
-        maxResults: 5,
-        key: YTUBE_KEY,
-      },
-    });
+    const response = await axios.get(
+      "https://www.googleapis.com/youtube/v3/search",
+      {
+        params: {
+          q: term,
+          part: "snippet",
+          maxResults: 5,
+          key: YTUBE_KEY,
+        },
+      }
+    );
 
     this.setState({
       videos: response.data.items,

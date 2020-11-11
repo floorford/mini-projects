@@ -60,7 +60,7 @@ const Dropdown = ({
           color: selected.hex ? selected.hex : "#ef79df",
         }}
       >
-        {resultText} {selected.value}
+        {resultText ? `${resultText} ${selected.value}` : null}
       </p>
     </section>
   );

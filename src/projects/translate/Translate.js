@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 import { options } from "./options";
-import Dropdown from "../dropdown/Dropdown";
+import Dropdown from "../dropdown/components/Dropdown";
+import Convert from "./components/Convert";
 
 const Translate = () => {
   const [language, setLanguage] = useState(options[20]);
@@ -12,10 +13,10 @@ const Translate = () => {
       <form className='ui form'>
         <div className='field'>
           <label className='label'>Input text</label>{" "}
-          <input
+          <textarea
             value={text}
             onChange={(e) => setText(e.currentTarget.value)}
-          />
+          ></textarea>
         </div>
       </form>
       <Dropdown
@@ -24,6 +25,10 @@ const Translate = () => {
         onSelectedChange={setLanguage}
         label={"Select a Language"}
       />
+      <section>
+        <h3>Translation:</h3>
+        <Convert language={language} text={text} />
+      </section>
     </section>
   );
 };

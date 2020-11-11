@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Dropdown from "./Dropdown";
+import Dropdown from "./components/Dropdown";
 
 const options = [
   { label: "The colour red", value: "red", hex: "#e63c3cde" },
