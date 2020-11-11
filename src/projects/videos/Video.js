@@ -38,7 +38,7 @@ class Video extends React.Component {
     const { videos, selectedVideo } = this.state;
 
     return (
-      <div>
+      <main className='ui container' style={{ marginTop: 10 }}>
         <SearchBar type={"Video"} searchSubmit={this.onSearchSubmit} />
         <div className='ui grid'>
           <div className='ui row'>
@@ -50,7 +50,7 @@ class Video extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     );
   }
 }

@@ -17,10 +17,10 @@ class ImageSearcher extends React.Component {
 
   render() {
     return (
-      <section className='ui container' style={{ marginTop: 10 }}>
+      <main className='ui container' style={{ marginTop: 10 }}>
         <SearchBar type={"Image"} searchSubmit={this.onSearchSubmit} />
         <List media={this.state.images} />
-      </section>
+      </main>
     );
   }
 }
