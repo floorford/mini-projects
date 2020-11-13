@@ -19,6 +19,7 @@ const SearchBar = ({ type, searchSubmit }) => {
             name='search'
             id='search'
             type='search'
+            placeholder='Enter a term to search...'
             onChange={(e) => setTerm(e.target.value)}
           />
         </section>
