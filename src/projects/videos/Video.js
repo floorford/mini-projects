@@ -1,40 +1,23 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-
-import { YTUBE_KEY } from "../../keys";
 
 import SearchBar from "../image_searcher/components/SearchBar";
 import List from "../image_searcher/components/List";
 import VideoDetail from "./components/VideoDetail";
+import useVideos from "./hooks/useVideos";
 
 const Video = () => {
-  const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
+  // custom hook: returns array [list of videos, search function for videos];
+  const [videos, search] = useVideos("cthun");
+
   useEffect(() => {
-    onSearchSubmit("cthun");
-  }, []);
-
-  const onSearchSubmit = async (term) => {
-    const response = await axios.get(
-      "https://www.googleapis.com/youtube/v3/search",
-      {
-        params: {
-          q: term,
-          part: "snippet",
-          maxResults: 5,
-          key: YTUBE_KEY,
-        },
-      }
-    );
-
-    setVideos(response.data.items);
-    setSelectedVideo(response.data.items[0]);
-  };
+    setSelectedVideo(videos[0]);
+  }, [videos]);
 
   return (
     <main className='ui container' style={{ marginTop: 10 }}>
-      <SearchBar type={"Video"} searchSubmit={onSearchSubmit} />
+      <SearchBar type={"Video"} searchSubmit={search} />
       <div className='ui grid'>
         <div className='ui row'>
           <div className='eleven wide column'>

@@ -6,8 +6,8 @@ import SeasonDisplay from "./components/SeasonDisplay";
 import Spinner from "./components/Spinner";
 
 class GeoLocation extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = { lat: null, errorMessage: "" };
   }
