@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { YTUBE_KEY } from "../../keys";
@@ -7,14 +7,15 @@ import SearchBar from "../image_searcher/components/SearchBar";
 import List from "../image_searcher/components/List";
 import VideoDetail from "./components/VideoDetail";
 
-class Video extends React.Component {
-  state = { videos: [], selectedVideo: null };
+const Video = () => {
+  const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
-  componentDidMount() {
-    this.onSearchSubmit("cthun");
-  }
+  useEffect(() => {
+    onSearchSubmit("cthun");
+  }, []);
 
-  onSearchSubmit = async (term) => {
+  const onSearchSubmit = async (term) => {
     const response = await axios.get(
       "https://www.googleapis.com/youtube/v3/search",
       {
@@ -27,35 +28,25 @@ class Video extends React.Component {
       }
     );
 
-    this.setState({
-      videos: response.data.items,
-      selectedVideo: response.data.items[0],
-    });
+    setVideos(response.data.items);
+    setSelectedVideo(response.data.items[0]);
   };
 
-  onVideoSelect = (video) => {
-    this.setState({ selectedVideo: video });
-  };
-
-  render() {
-    const { videos, selectedVideo } = this.state;
-
-    return (
-      <main className='ui container' style={{ marginTop: 10 }}>
-        <SearchBar type={"Video"} searchSubmit={this.onSearchSubmit} />
-        <div className='ui grid'>
-          <div className='ui row'>
-            <div className='eleven wide column'>
-              <VideoDetail video={selectedVideo} />
-            </div>
-            <div className='five wide column'>
-              <List media={videos} type='video' onSelect={this.onVideoSelect} />
-            </div>
+  return (
+    <main className='ui container' style={{ marginTop: 10 }}>
+      <SearchBar type={"Video"} searchSubmit={onSearchSubmit} />
+      <div className='ui grid'>
+        <div className='ui row'>
+          <div className='eleven wide column'>
+            <VideoDetail video={selectedVideo} />
+          </div>
+          <div className='five wide column'>
+            <List media={videos} type='video' onSelect={setSelectedVideo} />
           </div>
         </div>
-      </main>
-    );
-  }
-}
+      </div>
+    </main>
+  );
+};
 
 export default Video;
